@@ -1,0 +1,349 @@
+.chart-area {
+
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+.axis text {
+    font-size: 11px;
+}
+
+.sf-line {
+    /*49ers gold */
+    stroke: #b3995d;
+    stroke-width: 1.5px;
+    fill: none;
+}
+
+.nyc-line {
+    /*nyc blue */
+    stroke: #041E42;
+    stroke-width: 1.5px;
+    fill: none;
+}
+
+.boston-line {
+    /*freedom trail red */
+    stroke: #FB4D42;
+    stroke-width: 1.5px;
+    fill: none;
+}
+
+.tooltip-circle {
+    fill: #96AB96;
+}
+
+#wind-map {
+    width: 100%;
+    height: 600px;
+}
+
+#wind-map > .leaflet-pane.leaflet-map-pane {
+    width: 100%;
+    height: 100%;
+}
+
+.day-view {
+    height: 80vh;
+}
+
+.sf-bar {
+    fill: #b3995d;
+}
+
+.nyc-bar {
+    fill: #041E42;
+}
+
+.boston-bar {
+    fill: #FB4D42;
+}
+
+div.tooltip {
+    position: absolute;
+    text-align: left;
+    width: 300px;
+    height: 70px;
+    padding: 2px;
+    font: 12px sans-serif;
+    background: #F3E779;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.sf-point {
+    fill: #b3995d;
+}
+
+.sf-point-event {
+    fill: lightgrey;
+    stroke: #b3995d;
+    stroke-width: 4px;
+}
+
+.nyc-point {
+    fill: #041E42;
+}
+
+.nyc-point-event {
+    fill: lightgrey;
+    stroke: #041E42;
+    stroke-width: 4px;
+}
+
+.boston-point {
+    fill: #FB4D42;
+}
+
+.boston-point-event {
+    fill: lightgrey;
+    stroke: #FB4D42;
+    stroke-width: 4px;
+}
+
+.sf-node {
+    fill: #b3995d;
+}
+
+.nyc-node {
+    fill: #041E42;
+}
+
+.boston-node {
+    fill: #FB4D42;
+}
+
+.grid line {
+    stroke: lightgrey;
+    stroke-opacity: 0.7;
+    shape-rendering: crispEdges;
+}
+
+.grid path {
+    stroke-width: 0;
+}
+
+div.partview {
+    height: 50%;
+}
+
+#scrolly {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background-color: #f3f3f3;
+    padding: 1rem;
+}
+
+#scrolly > * {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+article {
+    position: relative;
+    margin-right: 1rem;
+    padding: 0;
+    max-width: 30rem;
+}
+
+figure {
+    position: -webkit-sticky;
+    position: sticky;
+    width: 100%;
+    margin: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    background-color: white;
+    z-index: 0;
+}
+
+figure > .visualization {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 500ms linear;
+    width: 100%;
+    height: 100%;
+}
+
+section h1 {
+    padding: 0 3rem;
+}
+
+.step {
+    margin: 0rem auto 2rem auto;
+    color: #3b3b3b;
+    background-color: rgba(0, 0, 0, 0.0);
+}
+
+.step:last-child {
+    margin-bottom: 0;
+}
+
+.step.is-active {
+    /*background-color: rgba(0, 0, 0, 0.0);*/
+    color: #3b3b3b;
+}
+
+.step p {
+    text-align: center;
+    padding: 0;
+    font-size: 1.5rem;
+}
+
+.step h1, h2 {
+    padding: 0;
+    margin-top: 0 !important;
+}
+
+.tipline {
+    stroke: dimgrey;
+    stroke-width: 3;
+}
+.tiptext {
+    font-size: 11px;
+    text-anchor: start;
+    fill: black;
+}
+#poptext.tiptext {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.nodeText {
+    font-size: 11px;
+    text-anchor: start;
+    fill: black;
+}
+
+.sfInputLabel {
+    background-color: #b3995d;
+    color: white;
+}
+
+.bostonInputLabel {
+    background-color: #FB4D42;
+    color: white;
+}
+
+.nycInputLabel {
+    background-color: #041E42;
+    color: white;
+}
+
+.edge {
+    stroke-width: 2;
+    stroke: #808080;
+    opacity: 0.3;
+}
+
+.cashLabel {
+    color: green;
+}
+
+.brushAreaPath {
+    fill: #ccc;
+}
+
+div.small-tooltip {
+    position: absolute;
+    text-align: left;
+    width: 60   px;
+    height: 30px;
+    padding: 2px;
+    font: 12px sans-serif;
+    background: #F3E779;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.cityCheckBoxDiv {
+    padding-left: 5px;
+    padding-top:3px;
+    padding-bottom: 3px;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.hover_line {
+    stroke: green;
+    stroke-width: 4;
+    stroke-dasharray: 0.5em;
+}
+
+.tooltip_group {
+}
+
+.hover_date_text {
+    font: 12px sans-serif;
+    text-anchor: start;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.hover_data_text {
+    font: 12px sans-serif;
+    text-anchor: start;
+    font-weight: bold;
+}
+
+.stepBackground {
+    background-color: rgba(0, 0, 0, 0.0);
+}
+
+.stepBox {
+    background-color: white;
+    border-color: #4e88c7;
+    border-width: medium;
+    border-style: solid;
+    padding: 20px 10px;
+}
+
+.stepExploreBox {
+    background-color: white;
+    border-color: #4e88c7;
+    border-width: medium;
+    border-style: dashed;
+    padding: 20px 10px;
+}
+
+.stepNextBox {
+    background-color: white;
+    border-color: #ffde2d;
+    border-width: medium;
+    border-style: solid;
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+    padding: 20px 10px;
+    margin-top: 10px;
+}
+
+.enableStepNextBox {
+}
+
+.questionHint {
+    font-style: italic;
+    font-size: small
+}
+
+.headerSpacingTopOverrides {
+    margin-top: 0px;
+    padding-top: 0px
+}
+
+.visualizationHeader {
+    background-color: #4e88c7;
+    color: white;
+    padding: 10px;
+    margin-top: 0px
+}

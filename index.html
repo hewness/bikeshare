@@ -1,0 +1,727 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bike-share use in three US metropolitan areas from 2017 to 2021</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
+
+    <link rel="stylesheet" href="css/leaflet.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container-fluid">
+<section id="intro" class="mt-1" style="background-color: #A51C30;color: white; padding: 10px">
+    <h1>Bike-share usage in the San Francisco, Boston, and New York City metropolitan areas</h1>
+</section>
+<section id="scrolly">
+    <article>
+        <div id="step1a" class="step" >
+            <div class="stepBox">
+                <h2>Introduction</h2>
+                <hr/>
+                <p style="text-align: left">Using data from three of the largest bike-share networks in the United
+                    States, this website <b>empowers</b> users to answer the question:
+                    <span style="font-weight: bold;font-style: italic">"What influences bike-share usage?"</span></span></p>
+            </div>
+        </div>
+
+        <div id="step1b" class="step">
+            <div class="stepBox">
+                <h2>Comparing Bike-shares</h2>
+                <hr/>
+                <p style="text-align: left">Each city offers similar membership plans, but <b>Boston's Blue
+                    Bikes is more affordable</b> New York City's annual plan.</p>
+
+                <p style="text-align: left"><b>New York City's system is significantly more larger and more extensive
+                </b>with more than twice the number of stations as Boston.</p>
+            </div>
+            <div id="step1bNext" class="stepNextBox">
+                <h2>Next Steps</h2>
+                <hr/>
+                <p style="text-align: left">Next: cumulative trip metrics.</p>
+            </div>
+        </div>
+
+        <div id="step2" class="step">
+            <div class="stepBox">
+                <h2>Bike-share System Trends Across Time</h2>
+                <hr/>
+                <p style="text-align: left">
+                    New York City, unsurprisingly, has had the largest number of
+                    bike share trips since 2017.
+                </p>
+                <p style="text-align: left">
+                    The number of stations in each city has gradually increased since 2017.
+                </p>
+            </div>
+        </div>
+
+        <div id="step3a" class="step">
+            <div class="stepBox">
+                <h2>Bay Area</h2>
+                <hr/>
+                <p style="text-align: left">
+                    The Bay Area's ridership grew unevenly until the <b>beginning of 2020 when ridership boomed.</b><p>
+                <p style="text-align: left">However, <b>ridership plummeted due to COVID-19 pandemic and has not fully
+                recovered</b> since.</p>
+                <p style="text-align: left">
+                    This could be because major employers like <b>Apple, Facebook, and Google are extending their
+                    work-from-home policies until at least January 2022.</b>
+                </p>
+            </div>
+        </div>
+        <div id="step3b" class="step" >
+            <div class="stepBox">
+                <h2>Boston Metro</h2>
+                <hr/>
+                <p style="text-align: left">
+                    Boston's ridership <b>grew steadily</b> with a drop during the start
+                    of the COVID-19 pandemic.</p>
+                <p style="text-align: left">
+                    But unlike the Bay Area, Boston's bikeshare usage has <b>recovered to higher than pre-COVID-19 levels</b>.
+                </p>
+            </div>
+        </div>
+        <div id="step3c" class="step stepBackground">
+            <div class="stepBox">
+                <h2>NYC Metro</h2>
+                <hr/>
+                <p style="text-align: left">
+                    Ridership in the NYC Metro follows a <b>similar pattern to Boston</b> in terms of ridership growth.
+                </p>
+                <p style="text-align: left">
+                    Unlike the Bay Area, major Wall St employers have been actively
+                    <b>encouraging workers to come back to the office</b></p>
+                <p style="text-align: left">Moreover, NYC's mayor has ordered <b>government employees back to
+                    the office on a full-time schedule</b>.
+                </p>
+            </div>
+        </div>
+        <div id="step3d" class="step">
+            <div class="stepBox">
+                <h2>General Trends</h2>
+                <hr/>
+                <p style="text-align: left">There are <b>steep declines</b> in the number of trips
+                    occurring during <b>holidays or on weekends.</b></p>
+                <p style="text-align: left">Leading us to conclude that many people use bike-share systems primarily for their <b>work-commute rather than pleasure</b></p>
+            </div>
+        </div>
+        <div id="step4" class="step">
+            <div class="stepBox">
+                <h2>General Trends</h2>
+                <hr/>
+                <p style="text-align: left">
+                    Despite colder winters, <b>Boston metro riders typically take longer rides (measured in minutes)</b>
+                    than their New York and San Francisco counterparts.
+                </p>
+                <p style="text-align: left">
+                    All metros experienced a period of <b>sustained longer median rides during the first wave of
+                    COVID-19 in 2020.</b>
+                </p>
+            </div>
+            <div class="stepBox" style="margin-top: 20px">
+                <h2>Seasonality</h2>
+                <hr/>
+                <p style="text-align: left">
+                    In Boston and New York City, <b>cyclists take longer rides as the weather gets warmer.</b></p>
+                <p style="text-align: left">
+                    In contrast, San Francisco does not experience the same seasonal increases in ridership.
+                </p>
+            </div>
+        </div>
+        <div id="step5" class="step">
+            <div class="stepExploreBox">
+                <h2>Explore: Weekly patterns</h2>
+                <hr/>
+                <h3>Are people riding longer periods during the weekend or the weekdays?</h3>
+                <div class="questionHint">Use the <b>brush tool</b> below the chart to zoom in during a month.</div>
+                </p>
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-right1"
+                        aria-expanded="false" aria-controls="collapse-right1" onclick="getElementById('collapse-wrong1').classList.remove('show')">
+                    Weekends
+                </button>
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-wrong1"
+                        aria-expanded="false" aria-controls="collapse-wrong1" onclick="getElementById('collapse-right1').classList.remove('show')">
+                    Weekdays
+                </button>
+                <div class="collapse" id="collapse-right1">
+                    <div class="card card-body">
+                        Correct! People ride for longer during the weekend on average.
+                    </div>
+                </div>
+                <div class="collapse" id="collapse-wrong1">
+                    <div class="card card-body">
+                        Check again. The majority of the time people are riding for longer durations during the weekend on average.
+                        Make sure you use the brush tool to zoom in and you can hover over the chart to see the day of the week.
+                    </div>
+                </div>
+            </div>
+            <div id="step5Next" class="stepNextBox">
+                <h2>Next Steps</h2>
+                <hr/>
+                <p style="text-align: left">Knowing what day and how long bike-share riders cycle, lets explore where they are going on a typical day</p>
+            </div>
+        </div>
+        <div id="step6" class="step">
+            <div class="stepBox">
+                <h2>Where are cyclists going on a typical day at a particular time?</h2>
+                <hr/>
+                <p style="text-align: left">
+                    Using the slider and region area buttons, we can examine movement across cities on a typical day.
+                    We see that in the morning of each region, that riders are leaving their homes and heading towards the city center and vice-versa during the evening.
+                </p>
+            </div>
+        </div>
+        <div id="step7" class="step">
+            <div class="stepExploreBox">
+                <h2>Explore the Data</h2>
+                <hr/>
+                <div>
+                    <ul>
+                        <li>Use the slider to explore the top-N routes for a given city.</li>
+                        <li>Click and drag a station node to adjust its placement on the graph for better viewing.</li>
+                    </ul>
+                </div>
+                <hr/>
+                <h3>Which Boston-area university campus has the most frequented bike-share routes?</h3>
+                <div class="questionHint">hint: Click the Boston Metro and adjust the slider from the left to right</div>
+                <div>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#forceNetworkCollapse"
+                            aria-expanded="false" aria-controls="forceNetworkCollapse">
+                        Reveal answers
+                    </button>
+                    <br>
+                    <div class="collapse" id="forceNetworkCollapse">
+                        <div class="card card-body">
+                            MIT
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="step8" class="step">
+            <div class="stepExploreBox">
+            <h2>What percentage of rides start and end at the same station?</h2>
+            <hr/>
+            <p style="text-align: left">
+                Rides that start and end at the same spot may be for pleasure or exercise.
+                Does the percentage of round trips change depending on month?
+            </p>
+            <p style="text-align: left">
+                See if you can answer these questions:
+            <ol>
+                <li>What month has the highest percentage of round trips?</li>
+                <li>Are round trips more common during warm or cold weather?</li>
+                <li>What effect did the coronavirus have on round trips? (Look at 2020)</li>
+            </ol>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1"
+                    aria-expanded="false" aria-controls="collapse1">
+                Reveal answers
+            </button>
+            <div class="collapse" id="collapse1">
+                <div class="card card-body">
+                    <ol>
+                        <li>July is the generally most common month pre-covid.</li>
+                        <li>Round trips appear to be proportionally more common during warm weather.</li>
+                        <li>Round trips skyrocketed and peaked in April/May 2020. In May 2020 in Boston the percentage quadrupled! Possible reasons include: work from home reducing one-way trips and gym closure encouraging outdoor exercise.</li>
+                    </ol>
+                </div>
+            </div>
+            </p>
+            </div>
+        </div>
+        <div id="step9" class="step">
+            <div class="stepBox">
+                <h2>How many people are riding during a typical day (Boston Day View 21st March 2021)?</h2>
+                <hr/>
+                <p style="text-align: left">
+                    Examining this radar polar coordinate plot that shows ridership across time, we see that the number of riders increases during business hours and decreases in the late evening.
+                </p>
+            </div>
+        </div>
+
+        <div id="step10" class="step">
+            <div class="stepBox">
+                <h2>About Team Final Aurora New</h2>
+                <hr/>
+                <table>
+                    <tr>
+                        <td>
+                            <img src="images/Gordon.jfif" class="img-thumbnail" />
+                        </td>
+                        <td>
+                            <div>Gordon Hew</div>
+                            <div><a href="emailto:ghew@g.harvard.edu">ghew@g.harvard.edu</a></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="./images/RichardMorello.png" class="img-thumbnail"/>
+                        </td>
+                        <td>
+                            <div>Richard Morello</div>
+                            <div><a href="emailto:rpm633@g.harvard.edu">rpm633@g.harvard.edu</a></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="./images/Nono.jpg" class="img-thumbnail" />
+                        </td>
+                        <td>
+                            No-no Groenen
+                            <div><a href="emailto:nog312@g.harvard.edu">nog312@g.harvard.edu</a></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="./images/Patrick.JPG" class="img-thumbnail" />
+                        </td>
+                        <td>
+                            Patrick Watts
+                            <div><a href="emailto:patrickwatts@g.harvard.edu">patrickwatts@g.harvard.edu</a></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="stepBox" style="margin-top: 10px;">
+                <h2>References</h2>
+                <hr>
+                <ul style="font-size: x-small">
+                    <li>
+                        <div>
+                            Lyft. (n.d.). System data: Bay Wheels. System Data | Bay Wheels | Lyft. Retrieved December 5, 2021, from
+                            <a href="https://www.lyft.com/bikes/bay-wheels/system-data">https://www.lyft.com/bikes/bay-wheels/system-data</a>.
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            Motivate International, I. (n.d.). Bluebikes System Data. Blue Bikes System Boston. Retrieved December 5, 2021, from
+                            <a href="https://www.bluebikes.com/system-data">https://www.bluebikes.com/system-data</a>.
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            Lyft. (n.d.). Citi Bike System Data. Citi Bike NYC. Retrieved December 5, 2021, from
+                            <a href="https://ride.citibikenyc.com/system-data">https://ride.citibikenyc.com/system-data</a>.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </article>
+    <!-- for showing figures during scrolling -->
+    <figure id="figure" >
+        <!--step 1-->
+        <div id="summary" class="visualization container-fluid">
+            <!--https://en.wikipedia.org/wiki/Bay_Wheels#/media/File:Bay_Wheels_logo.png-->
+            <!--https://upload.wikimedia.org/wikipedia/commons/e/e1/Bluebikes_Logo.svg-->
+            <!--https://upload.wikimedia.org/wikipedia/commons/a/ad/Citi_Bike_logo.svg-->
+
+            <div class="row headerSpacingTopOverrides">
+                <div class="col headerSpacingTopOverrides" >
+                    <h1 class="visualizationHeader">Bike-share systems overview</h1>
+                </div>
+            </div>
+            <div class="row">
+                <img src="./images/BlueBikes-Carousel-crop1.jpg" class="img-fluid col" alt="Docked bike-share bikes">
+            </div>
+            <div class="row" style="padding: 10px">
+                <table class="table">
+                    <thead>
+                    <tr style="font-size: x-large">
+                        <th scope="col"></th>
+                        <th scope="col" class="col-sm-3">Bay Area</th>
+                        <th scope="col" class="col-sm-3">Boston Metro</th>
+                        <th scope="col" class="col-sm-3">New York City Metro</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">System Name</th>
+                        <td><img src="images/bay_wheels_logo.png" style="width: 200px"/></td>
+                        <td><img src="images/bluebikes_logo.svg" style="width: 200px; padding-top: 10px"/></td>
+                        <td><img src="images/citi_bike_logo.svg" style="width: 200px"/></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Established</th>
+                        <td>August 29, 2013</td>
+                        <td>July 28, 2011</td>
+                        <td>May 27, 2013</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Count of Stations</th>
+                        <td>262+</td>
+                        <td>393</td>
+                        <td>1000+</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Coverage Area</th>
+                        <td>San Francisco, San Jose, Oakland</td>
+                        <td>Boston, Brookline, Cambridge, Everett, Somerville</td>
+                        <td>Manhattan, Brooklyn, Queens, The Bronx, Jersey City</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Cost</th>
+                        <td class="cashLabel">$$$</td>
+                        <td class="cashLabel">$$</td>
+                        <td class="cashLabel">$$$</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="padding-left: 5em"></th>
+                        <td>$159 per year</td>
+                        <td>$109 per year</td>
+                        <td>$179 per year</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="padding-left: 5em"></th>
+                        <td>$25 per month</td>
+                        <td>$25 per month</td>
+                        <td>No monthly plan</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="padding-left: 5em"></th>
+                        <td>$3.00 per ride</td>
+                        <td>$2.95 per ride</td>
+                        <td>$3.50 per ride</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Website</th>
+                        <td><a href="https://www.lyft.com/bikes/bay-wheels"
+                               target="_blank">www.lyft.com/bikes/bay-wheels</a></td>
+                        <td><a href="https://www.bluebikes.com/" target="_blank">www.bluebikes.com</a></td>
+                        <td><a href="https://www.citibikenyc.com/" target="_blank">www.citibikenyc.com</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!--step 2-->
+        <div id="aggregate" class="visualization">
+            <div id="aggregateBarChart" class="partview"></div>
+            <div id="stackedAreaChart" class="partview"></div>
+        </div>
+
+        <!--step 3-->
+        <div id="tripCountTrends" class="visualization container-fluid">
+            <div class="row headerSpacingTopOverrides">
+                <div class="col headerSpacingTopOverrides">
+                    <h1 class="visualizationHeader">How does ridership compare across cities over time?</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <form class="form-inline">
+                        <div class="form-group" style="background-color:#f2f2f2">
+                            <label for="tripCount-timeSeriesDataType" style="font-weight: bold">Chart Data: </label>
+                            <select class="form-control-lg" id="tripCount-timeSeriesDataType" onchange="updateTripCountTimeSeriesVisualization()">
+                                <option value="trip_count">Trip Count</option>
+                                <option value="trip_count_norm">Trip Count Normalized</option>
+                                <option value="trip_count_7d_ma">Trip Count 7-Day Moving Average</option>
+                                <option value="trip_count_7d_ma_norm">Trip Count 7-Day Moving Average Normalized</option>
+                            </select>
+                            <label style="font-weight: bold; margin-left: 10px;">Bike Share System: </label>
+                            <div class="sfInputLabel d-inline cityCheckBoxDiv">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="tripCount-sfCheckBox" value="sf" onclick="updateTripCountTimeSeriesVisualization()"/>
+                                    <label class="form-check-label" for="tripCount-sfCheckBox">Bay Area</label>
+                                </div>
+                            </div>
+                            <div class="bostonInputLabel d-inline cityCheckBoxDiv">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="tripCount-bostonCheckBox" value="boston" onclick="updateTripCountTimeSeriesVisualization()"/>
+                                    <label class="form-check-label" for="tripCount-bostonCheckBox">Boston Metro</label>
+                                </div>
+                            </div>
+                            <div class="nycInputLabel d-inline cityCheckBoxDiv" >
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="tripCount-nycCheckBox" value="nyc" onclick="updateTripCountTimeSeriesVisualization()"/>
+                                    <label class="form-check-label" for="tripCount-nycCheckBox">New York City Metro</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div id="tripCountTimeSeriesPlot" class="col"></div>
+            </div>
+            <div class="row">
+                <div class="align-self-center col" id="tripCountTimeSeriesBrush"></div>
+            </div>
+        </div>
+
+        <!--step 4-->
+        <div id="tripDurationTrends" class="visualization container-fluid">
+            <div class="row headerSpacingTopOverrides">
+                <div class="col headerSpacingTopOverrides">
+                    <h1 class="visualizationHeader">Which city's residents pedal the longest?</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <form class="form-inline">
+                        <div class="form-group" style="background-color:#f2f2f2">
+                            <label for="tripDuration-timeSeriesDataType" style="font-weight: bold">Chart Data: </label>
+                            <select class="form-control-lg" id="tripDuration-timeSeriesDataType" onchange="updateTimeDurationTimeSeriesVisualization()">
+                                <option value="median_trip_duration_minutes">Median Trip Duration (minutes)</option>
+                            </select>
+                            <label style="font-weight: bold; margin-left: 10px;">Bike Share System: </label>
+                            <div class="sfInputLabel d-inline cityCheckBoxDiv">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="tripDuration-sfCheckBox" value="sf"  onclick="updateTimeDurationTimeSeriesVisualization()">
+                                    <label class="form-check-label" for="tripDuration-sfCheckBox">Bay Area</label>
+                                </div>
+                            </div>
+                            <div class="bostonInputLabel d-inline cityCheckBoxDiv">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="tripDuration-bostonCheckBox" value="boston"  onclick="updateTimeDurationTimeSeriesVisualization()">
+                                    <label class="form-check-label" for="tripDuration-bostonCheckBox">Boston Metro</label>
+                                </div>
+                            </div>
+                            <div class="nycInputLabel d-inline cityCheckBoxDiv">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="tripDuration-nycCheckBox" value="nyc"  onclick="updateTimeDurationTimeSeriesVisualization()">
+                                    <label class="form-check-label" for="tripDuration-nycCheckBox">New York City Metro</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div id="tripDurationTimeSeriesPlot" class="col"></div>
+            </div>
+            <div class="row">
+                <div class="align-self-center col" id="tripDurationTimeSeriesBrush"></div>
+            </div>
+        </div>
+
+        <!--step 5-->
+        <div id="wind" class="visualization">
+            <h2>Where are people going at <span id="showWindTime"></span>?</h2></br>
+            City: <span class="inline-input"> <input type="radio" checked id="boston" name="singleCity" value="boston" onclick="updateWindmap()">
+            <label for="boston">Boston</label>
+            <input type="radio" id="nyc" name="singleCity" value="nyc" onclick="updateWindmap()">
+            <label for="nyc">New York City</label>
+            <input type="radio" id="sf" name="singleCity" value="sf" onclick="updateWindmap()">
+            <label for="sf">San-Francisco</label></span>
+            <span class="inline-input">
+                <span id="showWindDay"></span>
+            </span>
+            <span class="inline-input">
+                <label for="windTime">Time: </label>
+                <input type="range" id="windTime" min="0" max="1440" width="400px" value=60 onclick="updateWindmap()">
+            </span>
+            <div id="wind-map"></div>
+        </div>
+
+        <!--step 6-->
+        <div id="forceNetwork" class="visualization container-fluid">
+
+            <div class="row headerSpacingTopOverrides">
+                <div class="col headerSpacingTopOverrides">
+                    <h1 class="visualizationHeader">What are the most popular routes?</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col form-inline" style="background-color:#f2f2f2; padding: 5px">
+                    <div class="form-group d-inline">
+                        <label for="topStations" id="topStationsSliderLabel" style="font-weight: bold;">Select # of Stations to View:</label>
+                        0 <input type="range" class="form-range" style="width: 200px" min="0" max="100" id="topStations"  step="10" value="20" onchange="updateVisualization()" /> 100
+                    </div>
+                    <label style="font-weight: bold; margin-left: 10px;">Bike Share System: </label>
+                    <div class="sfInputLabel d-inline cityCheckBoxDiv form-group">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="cityNetworkRadioOptions" id="sfNetworkRadio" value="sf" checked onclick="updateVisualization()">
+                            <label class="form-check-label" for="sfNetworkRadio">Bay Area</label>
+                        </div>
+                    </div>
+                    <div class="bostonInputLabel d-inline cityCheckBoxDiv form-group">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="cityNetworkRadioOptions" id="bostonNetworkRadio" value="boston" onclick="updateVisualization()">
+                            <label class="form-check-label" for="bostonNetworkRadio">Boston Metro</label>
+                        </div>
+                    </div>
+                    <div class="nycInputLabel d-inline cityCheckBoxDiv form-group">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="cityNetworkRadioOptions" id="nycNetworkRadio" value="nyc" onclick="updateVisualization()">
+                            <label class="form-check-label nycInputLabel" for="nycNetworkRadio">NYC Metro</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h2 id="topStationsLabel" style="padding: 0px">Top Most Frequented Stations</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div id="forceStationNetworkArea" class="col"></div>
+            </div>
+        </div>
+
+        <!--step 7-->
+        <div id="line" class="visualization">
+            <form class="form-inline">
+
+            <label style="font-weight: bold; margin-left: 10px;">Bike Share System: </label>
+            <div class="sfInputLabel d-inline cityCheckBoxDiv">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="line-sfCheckBox" value="sf" checked onclick="updateVisualization()"/>
+                    <label class="form-check-label" for="line-sfCheckBox">Bay Area</label>
+                </div>
+            </div>
+            <div class="bostonInputLabel d-inline cityCheckBoxDiv">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="line-bostonCheckBox" value="boston" checked onclick="updateVisualization()"/>
+                    <label class="form-check-label" for="line-bostonCheckBox">Boston Metro</label>
+                </div>
+            </div>
+            <div class="nycInputLabel d-inline cityCheckBoxDiv" >
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="line-nycCheckBox" value="nyc" checked onclick="updateVisualization()"/>
+                <label class="form-check-label" for="line-nycCheckBox">New York City Metro</label>
+                </div>
+            </div>
+                <label style="font-weight: bold; margin-left: 10px;">Year: </label>
+                <div class="y2017Label d-inline cityCheckBoxDiv">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="line-year" id="line-2017" value="2017" onclick="updateVisualization()"/>
+                        <label class="form-check-label" for="line-2017">2017</label>
+                    </div>
+                </div>
+                <div class="y2018Label d-inline cityCheckBoxDiv">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="line-year" id="line-2018" value="2018"  onclick="updateVisualization()"/>
+                        <label class="form-check-label" for="line-2018">2018</label>
+                    </div>
+                </div>
+                <div class="y2019Label d-inline cityCheckBoxDiv">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="line-year" id="line-2019" value="2019"  onclick="updateVisualization()"/>
+                        <label class="form-check-label" for="line-2019">2019</label>
+                    </div>
+                </div>
+                <div class="y2020Label d-inline cityCheckBoxDiv">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="line-year" id="line-2020" value="2020" checked onclick="updateVisualization()"/>
+                        <label class="form-check-label" for="line-2020">2020</label>
+                    </div>
+                </div>
+                <div class="y2021Label d-inline cityCheckBoxDiv">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="line-year" id="line-2021" value="2021"  onclick="updateVisualization()"/>
+                        <label class="form-check-label" for="line-2021">2021</label>
+                    </div>
+                </div>
+            </form>
+            <div id="lineGraph"></div>
+        </div>
+
+        <!--step 8-->
+        <div id="radial" class="visualization">
+            <div class="container-fluid" style="height: 30%;">
+                <div class="row">
+                    <p>Toggle dates to show the number of active riders at any moment in time on those days.</p>
+                    <div id="day-view-selection" class="container"></div>
+                </div>
+            </div>
+            <div class="container-fluid" style="height: 70%;">
+                <div class="row">
+                    <div class="col-4 day-view">
+                        <div id="day-view-boston"></div>
+                    </div>
+                    <div class="col-4 day-view">
+                        <div id="day-view-nyc"></div>
+                    </div>
+                    <div class="col-4 day-view">
+                        <div id="day-view-sf"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--step 9-->
+        <div id="conclusion" class="visualization container-fluid">
+            <div class="row">
+                <div class="col" >
+                    <img src="./images/rainbow_blue_bikes.jpg" class="img-fluid" alt="Docked bike-share bikes">
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col headerSpacingTopOverrides">
+                            <h1 class="visualizationHeader">What are they key drivers of bike-share ridership?</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col" style="font-size: x-large; margin-left: 20px">
+                            <ul>
+                                <li>Weather and Season</li>
+                                <li>Day of Week / Time of Day</li>
+                                <li>Holidays</li>
+                                <li>COVID-19
+                                    <ul>
+                                        <li>Stay-at-home orders</li>
+                                        <li>Returning to Work</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col headerSpacingTopOverrides">
+                            <h1 class="visualizationHeader">Bike-shares fill a need</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col" style="font-size: x-large; text-align: center; padding: 10px">
+                            As shown by the data, bike-share programs are popular with city residents.
+                            They allow people to go to work, run errands, and enjoy their city.
+                            As with all networks, as more sites are built, the utility of the network increases.
+                            If you enjoy bike-share programs, contact your local congressperson and city officials
+                            to advocate for improved bicycling infrastructure.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </figure>
+</section>
+</div>
+
+<!-- embedding JS libraries -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+
+<!-- d3 -->
+<script src="https://d3js.org/d3.v7.js"></script>
+
+<!-- leaflet -->
+<script src="js/leaflet.js"></script>
+
+<!-- scrollma -->
+<script src="https://unpkg.com/intersection-observer"></script>
+<script src="https://unpkg.com/scrollama"></script>
+
+<!-- Your implementation -->
+<script src="js/forceNetworkVis.js"></script>
+<script src="js/barVis.js"></script>
+<script src="js/windMap.js"></script>
+<script src="js/timeSeriesPlotVis.js"></script>
+<script src="js/timeSeriesTimeline.js"></script>
+<script src="js/timeSeriesVis.js"></script>
+<script src="js/dayViewRadial.js"></script>
+<script src="js/stackedAreaVis.js"></script>
+<script src="js/lineGraphVis.js"></script>
+<script src="js/scroller.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
